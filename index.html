@@ -1,0 +1,709 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Lexicon</title>
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="default">
+<meta name="apple-mobile-web-app-title" content="Lexicon">
+<meta name="theme-color" content="#F6F5F0">
+<link rel="apple-touch-icon" href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAALQAAAC0CAIAAACyr5FlAAAC3klEQVR4nO3doWuUYRzAcU/G1KaiUYPNOlAQbNYFEaMYTAZBF5aHIhgFk+C/YLQKCgNFYU2GIAYtIqIrm7pksMjwG5Tdvbvj80nH+7J7HsaX9znYj9toa3Nj3/itnV38/WLh1ZMJLMeu2D/0Bti7xEESB0kcJHGQxEESB0kcJHGQxEESB0kcJHGQxEESB0kcJHGQxEESB0kcJHGQxEESB0kcJHGQxEESB0kcJHGQxEESB0kcJHGQxEESB0kcJHGQxEESB0kcJHGQxEESB2n0dn1t6D2wR418MT7FsUISB0kcJHGQ5obewK65vnT7+errXXzDi4sX7q0s7eIbTh1PDpI4SOIgiYM0Ox9IH95fqVuXr956s/7ur7fOn1t49ODO2DY13Tw5SOIgiYMkDpI4SOIgiYMkDpI4SOIgzX388H4Cyxx//OD3i8kst8P29s+69eP790G2NBXmTpw8NYFlhp0+n58/ULcOHjo0md/ANHKskMRBEgdJHCRxkMRBEgdJHCRxkMRBEgdJHCRxkMRBEgdJHCRxkMRBEgdJHCTT56bPk+lz0+fJsUISB0kcJHGQxEESB0kcJHGQxEESB0kcJHGQxEGanf+3sjc9ffbyxvLdP68s37x27cqlofbzTzw5SOIgiYMkDpI4SOIgmT4f7/T5ly+fdlzZ+PZ1WubdTZ+Pd/r82PvPO64cPnJ0WubdHSskcZDEQZqdv61cX7r9fPX1v/7U6ou102cWx7GfGeDJQRIHSRwkcZBm5wPpw/srQ29h1nhykMRBEgdJHCRxkMRBEgdJHCRxkMRBEgdp9HZ9beg9sEeNtjY3JrDMsNPn/B/HCkkcJHGQxEESB0kcJHGQxEESB0kcJHGQxEESB0kcJHGQxEESB0kcJHGQxEEyfU4yfU5yrJDEQRIHSRwkcZDEQRIHSRwkcZDEQRIHSRwkcZDEQRIHSRwkcZDEQRIHSRwk0+ck0+ckxwpJHKRfdfqILHieZCIAAAAASUVORK5CYII=">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;0,6..72,600;1,6..72,400&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Sans+Hebrew:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root{
+  box-sizing:border-box;
+  padding-top:env(safe-area-inset-top,0px);
+  padding-bottom:env(safe-area-inset-bottom,0px);
+  --paper:#F6F5F0; --sheet:#FFFFFF; --line:#E1DFD6; --ink:#1F2A3C; --ink-2:#5B6577; --ink-3:#98A0AE;
+  --rule:#C42B3C; --rule-soft:#F7E3E5; --ok:#2E7D5B; --ok-soft:#E3F2EA; --warn:#B7791F; --warn-soft:#FBF1DD;
+  --serif:"Newsreader",Georgia,"Times New Roman",serif;
+  --sans:"IBM Plex Sans","IBM Plex Sans Hebrew",-apple-system,"Segoe UI",Helvetica,Arial,sans-serif;
+  --heb:"IBM Plex Sans Hebrew","IBM Plex Sans",-apple-system,"Segoe UI",Arial,sans-serif;
+}
+@media (prefers-color-scheme:dark){ :root:not([data-theme="light"]){
+  --paper:#14171C; --sheet:#1C2027; --line:#2C323C; --ink:#ECEBE4; --ink-2:#A6ADBA; --ink-3:#6B7383;
+  --rule:#E04B5A; --rule-soft:#3A2226; --ok:#5DBB8E; --ok-soft:#1F3A2E; --warn:#D9A24A; --warn-soft:#3A2F1A;
+}}
+:root[data-theme="dark"]{
+  --paper:#14171C; --sheet:#1C2027; --line:#2C323C; --ink:#ECEBE4; --ink-2:#A6ADBA; --ink-3:#6B7383;
+  --rule:#E04B5A; --rule-soft:#3A2226; --ok:#5DBB8E; --ok-soft:#1F3A2E; --warn:#D9A24A; --warn-soft:#3A2F1A;
+}
+html{scroll-padding-top:env(safe-area-inset-top,0px);height:100%}
+*,*::before,*::after{box-sizing:inherit}
+body{margin:0;height:100%;background:var(--paper);color:var(--ink);font-family:var(--sans);font-size:16px;line-height:1.5;-webkit-font-smoothing:antialiased}
+button,input,textarea,select{font:inherit;color:inherit}
+button{cursor:pointer;background:none;border:0;padding:0}
+button:focus-visible,input:focus-visible,textarea:focus-visible,[tabindex]:focus-visible{outline:2px solid var(--rule);outline-offset:2px}
+.app{max-width:640px;margin:0 auto;min-height:100%;display:flex;flex-direction:column}
+header{display:flex;align-items:baseline;justify-content:space-between;padding:18px 20px 8px}
+header h1{font-family:var(--serif);font-weight:500;font-size:28px;margin:0;letter-spacing:-.01em}
+.pill{font-size:13px;color:var(--ink-2)}
+.pill b{color:var(--rule);font-weight:600}
+main{flex:1;padding:4px 20px 110px}
+.view{display:none}.view.on{display:block}
+
+/* bottom nav */
+nav{position:fixed;left:0;right:0;bottom:0;background:var(--sheet);border-top:1px solid var(--line);padding:6px 0 calc(8px + env(safe-area-inset-bottom,0px))}
+nav .in{max-width:640px;margin:0 auto;display:flex}
+nav button{flex:1;padding:8px 0 4px;font-size:12px;color:var(--ink-3);display:flex;flex-direction:column;align-items:center;gap:3px}
+nav button svg{width:22px;height:22px;stroke:currentColor;fill:none;stroke-width:1.7;stroke-linecap:round;stroke-linejoin:round}
+nav button.on{color:var(--ink)}
+nav button .dot{position:absolute;margin-left:28px;margin-top:-2px;width:7px;height:7px;border-radius:50%;background:var(--rule)}
+
+/* the ruled card — the notebook's red margin line is the one signature */
+.card{position:relative;background:var(--sheet);border:1px solid var(--line);border-radius:4px;padding:16px 18px 16px 26px;margin:12px 0}
+.card::before{content:"";position:absolute;left:14px;top:0;bottom:0;width:1px;background:var(--rule);opacity:.85}
+.card.flat::before{display:none}.card.flat{padding-left:18px}
+.head{font-family:var(--serif);font-size:30px;font-weight:500;line-height:1.1;margin:0;letter-spacing:-.01em}
+.pron{color:var(--ink-2);font-size:15px;margin-top:4px}
+.heb{font-family:var(--heb);direction:rtl;text-align:right;font-size:17px;color:var(--ink)}
+.meta{font-size:13px;color:var(--ink-2);margin-top:8px}
+.meta .tag{display:inline-block;border:1px solid var(--line);border-radius:3px;padding:0 6px;margin-right:6px;font-size:12px}
+.meta .tag.active{border-color:var(--ok);color:var(--ok)}
+.meta .tag.phrase{border-color:var(--warn);color:var(--warn)}
+.body p{margin:10px 0 0}
+.ex{font-family:var(--serif);font-size:18px;line-height:1.45;margin:10px 0 0;padding-left:12px;border-left:2px solid var(--line)}
+.ex i{color:var(--ink-2)}
+.ex .b{text-decoration:underline;text-decoration-color:var(--rule);text-underline-offset:3px}
+.coll span{display:inline-block;background:var(--paper);border-radius:3px;padding:1px 8px;margin:6px 6px 0 0;font-size:14px}
+.dim{color:var(--ink-2)} .small{font-size:13px} .mt{margin-top:12px}
+.lbl{font-size:13px;color:var(--ink-2);margin:14px 0 4px}
+
+/* controls */
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;min-height:44px;padding:0 18px;border-radius:4px;border:1px solid var(--ink);background:var(--ink);color:var(--paper);font-weight:500;font-size:15px}
+.btn.ghost{background:transparent;color:var(--ink);border-color:var(--line)}
+.btn.red{background:var(--rule);border-color:var(--rule);color:#fff}
+.btn:disabled{opacity:.45;cursor:default}
+.btn.wide{width:100%}
+.row{display:flex;gap:10px;flex-wrap:wrap;margin-top:12px}
+.row .btn{flex:1}
+.link{color:var(--rule);text-decoration:underline;text-underline-offset:3px;font-size:14px;min-height:36px;padding:0 4px}
+input[type=text],textarea,select{width:100%;background:var(--sheet);border:1px solid var(--line);border-radius:4px;padding:11px 12px;color:var(--ink)}
+textarea{resize:vertical;min-height:84px;line-height:1.45}
+input.big{font-family:var(--serif);font-size:24px;padding:12px 14px}
+input.heb,textarea.heb{font-family:var(--heb);direction:rtl}
+.status{min-height:22px;font-size:14px;color:var(--ink-2);margin-top:10px}
+.status.err{color:var(--rule)} .status.ok{color:var(--ok)}
+.empty{text-align:center;padding:40px 10px;color:var(--ink-2)}
+.empty .head{font-size:24px}
+.seg{display:flex;border:1px solid var(--line);border-radius:4px;overflow:hidden;margin:12px 0}
+.seg button{flex:1;padding:9px 0;font-size:14px;color:var(--ink-2)}
+.seg button.on{background:var(--ink);color:var(--paper)}
+
+/* review */
+.answer{display:flex;gap:10px;margin-top:14px}
+.answer input{flex:1}
+.verdict{margin-top:14px;padding:12px 14px;border-radius:4px;background:var(--paper)}
+.verdict.good{background:var(--ok-soft)} .verdict.bad{background:var(--rule-soft)}
+.rate{display:flex;gap:8px;margin-top:14px}
+.rate button{flex:1;min-height:48px;border:1px solid var(--line);border-radius:4px;font-size:14px;background:var(--sheet)}
+.rate button small{display:block;font-size:11px;color:var(--ink-3)}
+.progress{height:3px;background:var(--line);border-radius:2px;margin:6px 0 2px;overflow:hidden}
+.progress i{display:block;height:100%;background:var(--rule);width:0;transition:width .3s}
+.spin{display:inline-block;width:14px;height:14px;border:2px solid var(--line);border-top-color:var(--rule);border-radius:50%;animation:sp .8s linear infinite;vertical-align:-2px;margin-right:6px}
+@keyframes sp{to{transform:rotate(360deg)}}
+@media (prefers-reduced-motion:reduce){.spin{animation:none}.progress i{transition:none}}
+
+/* lexicon list */
+.tools{display:flex;gap:8px;margin:10px 0}
+.tools input{flex:1}
+.tools select{width:auto;flex:0 0 auto}
+.list{margin-top:8px}
+.item{display:flex;align-items:baseline;gap:12px;width:100%;text-align:left;padding:12px 4px;border-bottom:1px solid var(--line)}
+.item .w{font-family:var(--serif);font-size:20px;flex:1;min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.item .h{font-family:var(--heb);direction:rtl;color:var(--ink-2);font-size:15px;max-width:45%;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.item .s{width:8px;height:8px;border-radius:50%;background:var(--ink-3);flex:none}
+.item .s.new{background:var(--ink-3)} .item .s.learning{background:var(--warn)} .item .s.active{background:var(--ok)} .item .s.known{background:transparent;border:1px solid var(--ink-3)}
+.item .s.stub{background:var(--rule)}
+.counts{font-size:13px;color:var(--ink-2);margin:4px 0}
+details{margin-top:18px} summary{cursor:pointer;color:var(--ink-2);font-size:14px;padding:6px 0}
+.fld{margin-top:10px}.fld label{display:block;font-size:12px;color:var(--ink-2);margin-bottom:3px}
+.sheet{position:fixed;inset:0;background:rgba(0,0,0,.35);display:none;align-items:flex-end;justify-content:center;z-index:20}
+.sheet.on{display:flex}
+.sheet .panel{background:var(--sheet);width:100%;max-width:640px;max-height:92%;overflow:auto;border-radius:10px 10px 0 0;padding:14px 20px calc(20px + env(safe-area-inset-bottom,0px))}
+.sheet .bar{display:flex;justify-content:space-between;align-items:center;margin-bottom:6px}
+.sheet .bar .link{min-height:40px}
+</style>
+</head>
+<body>
+<div class="app">
+<header><h1>Lexicon</h1><div class="pill" id="pill"></div></header>
+<main>
+
+<!-- TODAY -->
+<section class="view on" id="view-today">
+  <div class="seg" role="tablist">
+    <button id="m-recall" class="on">Recall</button>
+    <button id="m-use">Use it</button>
+  </div>
+  <div class="progress"><i id="prog"></i></div>
+  <div id="today"></div>
+</section>
+
+<!-- ADD -->
+<section class="view" id="view-add">
+  <p class="dim" style="margin:6px 0 10px">A word or phrase you just met. Say where, if you remember; it sharpens the entry.</p>
+  <input type="text" class="big" id="add-head" placeholder="e.g. that ship has sailed" autocapitalize="off" autocomplete="off">
+  <input type="text" id="add-ctx" class="mt" placeholder="Context (optional): heard in a meeting, line from a show…">
+  <div class="row">
+    <button class="btn" id="add-build">Build entry</button>
+    <button class="btn ghost" id="add-stub">Save for later</button>
+  </div>
+  <div class="status" id="add-status"></div>
+  <div id="add-preview"></div>
+  <details id="manual-box">
+    <summary>No API key? Build it through the Claude app</summary>
+    <p class="small dim">Copy the prompt, paste it into Claude, then paste Claude's JSON answer below.</p>
+    <div class="row"><button class="btn ghost" id="man-copy">Copy prompt for this word</button></div>
+    <textarea id="man-paste" placeholder="Paste Claude's answer here"></textarea>
+    <div class="row"><button class="btn ghost" id="man-go">Use pasted answer</button></div>
+    <div class="status" id="man-status"></div>
+  </details>
+  <details>
+    <summary>Import a list from a notebook page</summary>
+    <p class="small dim">One per line, "word - translation". Translations are kept; the rest gets built when you review.</p>
+    <textarea id="imp-text" placeholder="Pensive - מהורהר&#10;Aloof - מרוחק"></textarea>
+    <div class="row"><button class="btn ghost" id="imp-go">Import lines</button></div>
+    <div class="status" id="imp-status"></div>
+  </details>
+</section>
+
+<!-- LEXICON -->
+<section class="view" id="view-lex">
+  <div class="tools">
+    <input type="text" id="q" placeholder="Search English or Hebrew" autocapitalize="off">
+    <select id="filt">
+      <option value="">All</option>
+      <option value="stub">Needs building</option>
+      <option value="new">New</option>
+      <option value="learning">Learning</option>
+      <option value="active">Active</option>
+      <option value="known">Known</option>
+      <option value="phrase">Phrases</option>
+    </select>
+  </div>
+  <div class="counts" id="counts"></div>
+  <div class="row" id="build-row" style="display:none"><button class="btn ghost" id="build-stubs">Build 8 unbuilt entries with Claude</button></div>
+  <div class="status" id="lex-status"></div>
+  <div class="list" id="list"></div>
+  <details>
+    <summary>Claude &amp; settings</summary>
+    <p class="small dim">Entries are built and sentences graded by Claude through your own Anthropic API key. The key stays on this phone only. Without a key you can still copy each prompt into the Claude app and paste the answer back.</p>
+    <div class="fld"><label for="set-key">Anthropic API key</label><input type="text" id="set-key" placeholder="sk-ant-…" autocapitalize="off" autocomplete="off" autocorrect="off"></div>
+    <div class="fld"><label for="set-model">Model</label><select id="set-model">
+      <option value="claude-sonnet-5-5">Sonnet 5.5 (recommended)</option>
+      <option value="claude-haiku-4-5-20251001">Haiku 4.5 (fastest, cheapest)</option>
+      <option value="claude-opus-5-5">Opus 5.5 (most careful)</option>
+    </select></div>
+    <div class="row"><button class="btn" id="set-save">Save settings</button></div>
+    <div class="status" id="set-status"></div>
+  </details>
+  <details>
+    <summary>Backup &amp; import</summary>
+    <p class="small dim">Everything lives on this phone. Download a backup now and then; import it here on a new phone, or paste the JSON exported from the Claude version of this app.</p>
+    <div class="row"><button class="btn ghost" id="exp-dl">Download backup</button><button class="btn ghost" id="exp">Copy JSON</button></div>
+    <textarea id="imp-json" placeholder="Paste a Lexicon JSON backup here"></textarea>
+    <div class="row"><button class="btn ghost" id="imp-json-go">Import JSON</button></div>
+    <div class="status" id="exp-status"></div>
+  </details>
+</section>
+</main>
+
+<nav><div class="in">
+  <button data-v="today" class="on"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg>Today<span class="dot" id="nav-dot" hidden></span></button>
+  <button data-v="add"><svg viewBox="0 0 24 24"><path d="M12 5v14M5 12h14"/></svg>Add</button>
+  <button data-v="lex"><svg viewBox="0 0 24 24"><path d="M4 5h16v14H4zM4 10h16M9 5v14"/></svg>Lexicon</button>
+</div></nav>
+</div>
+
+<div class="sheet" id="sheet"><div class="panel" id="panel"></div></div>
+
+<script>
+(() => {
+'use strict';
+const $ = s => document.querySelector(s);
+const esc = s => String(s ?? '').replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+const now = () => Date.now();
+const DAY = 86400000;
+const SEED = ["Simplify|לפשט", "Crucial|מכריע", "Gladly|בשמחה", "Pelican|שקנאי", "Peacock|טווס", "Revenue|הכנסה", "Barge|להידחף / דוברה", "Calibrate|לכייל", "Redundant|מיותר / עודף", "Pensive|מהורהר", "Distinguished|נכבד / מכובד", "Distinguish|להבחין", "Equivalent|שווה ערך / מקביל", "Freight|מטען / הובלה", "Mettle|כוח אופי / עמידות", "Quality|איכות / תכונה", "Sabotage|חבלה / לחבל", "Fairly|למדי / בהגינות", "Amends|פיצוי / תיקון / לכפר", "Vacancy|משרה פנויה / מקום פנוי", "Discipline|משמעת", "Drowning|טביעה", "Aloof|מרוחק / מתנשא", "Immerse|לטבול / להתעמק", "Appendix|נספח / תוספתן", "Queue|תור", "Rascal|נבל / שובב", "Emerald|ברקת", "Obliged|מחויב / אסיר תודה", "Pretext|אמתלה / תירוץ", "Abide|לציית / לשאת / לסבול", "Tender|רך / עדין / מכרז / להציע", "Comply|לציית", "Cluster|אשכול", "Hog|חזיר / להשתלט על", "Certificate|תעודה", "Adequately|כראוי", "Virtue|מעלה / סגולה", "Contrive|לתכנן / להמציא", "Deliberate|מכוון / לשקול", "Afflict|לייסר", "Transparency|שקיפות", "Saccharine|סכריני / מתקתק", "Tray|מגש", "Vacant|ריק / פנוי", "Hallucination|הזיה", "Pinch|צביטה / קורט", "Flinch|להירתע", "Stew|תבשיל", "Vanquish|לנצח / להכניע", "Pale|חיוור", "Farthing|פרוטה", "Accumulate|לצבור", "Convoy|שיירה", "Precision|דיוק", "Insatiably|ללא שובע", "Gaping|פעור", "Prevail|לגבור / לשרור", "Admonition|נזיפה / אזהרה"];
+
+
+let db = null, sample = null, entries = [], unsub = null, view = 'today', mode = 'recall';
+
+
+// ---------- storage ----------
+const localKey = 'lexicon-cache-v1';
+function readLocal(){ try{ const r = localStorage.getItem(localKey); return r ? JSON.parse(r) : null; }catch(e){ return null; } }
+function writeLocal(){ try{ localStorage.setItem(localKey, JSON.stringify(entries.slice(0,5000))); }catch(e){} }
+function readPref(k, d){ try{ const v = localStorage.getItem('lexicon-'+k); return v == null ? d : JSON.parse(v); }catch(e){ return d; } }
+function writePref(k, v){ try{ localStorage.setItem('lexicon-'+k, JSON.stringify(v)); }catch(e){} }
+
+function newId(){ return 'e' + now().toString(36) + Math.random().toString(36).slice(2,7); }
+
+async function saveEntry(e){
+  e.updated = now();
+  const i = entries.findIndex(x => x.id === e.id);
+  if (i >= 0) entries[i] = e; else entries.push(e);
+  writeLocal();
+  render();
+  if (!db) return;
+  try { await db.collection('entries').doc(e.id).set(e); }
+  catch (err) { flash($('#lex-status'), 'Could not save to the cloud (' + err.code + '). Kept on this device.', 'err'); }
+}
+async function deleteEntry(id){
+  entries = entries.filter(x => x.id !== id); writeLocal(); render();
+  if (db) { try { await db.collection('entries').doc(id).delete(); } catch (err) {} }
+}
+
+function flash(el, msg, cls){ if(!el) return; el.textContent = msg; el.className = 'status ' + (cls||''); }
+
+// ---------- scheduling (SM-2, simplified) ----------
+function schedule(e, grade){ // grade: 0 again, 1 good, 2 easy
+  e.reps = e.reps || 0; e.ease = e.ease || 2.4; e.interval = e.interval || 0;
+  if (grade === 0){ e.lapses = (e.lapses||0)+1; e.reps = 0; e.interval = 0; e.ease = Math.max(1.3, e.ease - .2); e.due = now() + 10*60000; }
+  else {
+    let iv = e.reps === 0 ? 1 : e.reps === 1 ? 3 : Math.round(e.interval * e.ease);
+    if (grade === 2){ iv = Math.round(Math.max(iv,1) * 1.4); e.ease += .1; }
+    e.reps++; e.interval = iv; e.due = now() + iv * DAY;
+  }
+  e.lastReviewed = now();
+  if (e.status === 'new') e.status = 'learning';
+}
+const dueList = () => entries.filter(e => e.status !== 'known' && e.status !== 'stub' && (e.due||0) <= now()).sort((a,b)=>(a.due||0)-(b.due||0));
+const useList = () => entries.filter(e => e.status === 'learning' || e.status === 'new').sort((a,b)=>(a.uses||0)-(b.uses||0) || (a.lastUsed||0)-(b.lastUsed||0));
+
+// ---------- Claude prompts ----------
+const PROFILE = 'The learner is an Israeli adult with three degrees from a US university: fluent, near-native reading, aiming for native-level active use. Their gap is active use and idiom, not comprehension. Write for that level: precise, no hand-holding.';
+function buildPrompt(head, ctx, heb){
+  return `${PROFILE}
+Create a lexicon entry for the English item below. Reply with only one JSON object, no prose, with exactly these keys:
+{"head": the item in its canonical dictionary form (fix casing/typos, keep phrases as phrases),
+ "kind": "word" or "phrase",
+ "pron": pronunciation as IPA for a single word, or a short note on stress/rhythm for a phrase,
+ "register": one of "neutral","formal","informal","slang","literary","dated","technical",
+ "meaning": one precise definition in English, under 30 words,
+ "heb": the best Hebrew equivalent(s), 1-3 options separated by " / ",
+ "distinguish": one sentence on the nearest English near-synonym or confusable item and how this one differs (name it),
+ "examples": two natural example sentences in different contexts (one conversational, one written), each containing the item,
+ "collocations": 3-5 words or short patterns it most commonly travels with (e.g. "mettle: test someone's mettle, prove one's mettle"),
+ "note": one sentence a native speaker would tell a fluent non-native about using it well (when it sounds off, overuse, tone). Empty string if nothing worth saying.}
+Item: ${head}${ctx ? '\nWhere the learner met it: ' + ctx : ''}${heb ? '\nThe learner\'s own Hebrew gloss (may be partial): ' + heb : ''}`;
+}
+function bulkPrompt(stubs){
+  return `${PROFILE}
+For each English item below, create a lexicon entry. Reply with only a JSON array, one object per item in the same order, each with keys: id (copy as given), head, kind ("word"|"phrase"), pron (IPA for words; stress note for phrases), register ("neutral"|"formal"|"informal"|"slang"|"literary"|"dated"|"technical"), meaning (under 30 words), heb (1-3 Hebrew equivalents separated by " / "), distinguish (one sentence naming the nearest confusable near-synonym and the difference), examples (array of 2 natural sentences containing the item), collocations (array of 3-5 common partners/patterns), note (one usage tip for a fluent non-native, or "").
+Items:
+${stubs.map(s => `${s.id} | ${s.head}${s.heb ? ' | learner gloss: ' + s.heb : ''}`).join('\n')}`;
+}
+function gradePrompt(e, sentence){
+  return `${PROFILE}
+The learner is practising active use of: "${e.head}" (${e.kind}; meaning: ${e.meaning}; register: ${e.register}).
+They wrote: "${sentence}"
+Judge it as a demanding native-speaker editor would. Reply with only a JSON object:
+{"ok": true if a native speaker would find the usage natural and correct in meaning, register and grammar, otherwise false,
+ "verdict": one or two sentences on what works and what doesn't (be specific: collocation, register, grammar, meaning),
+ "better": if not ok, the sentence rewritten the way a native speaker would say it; if ok, a more idiomatic or vivid alternative, or "" }`;
+}
+function normalizeEntry(d, base){
+  const arr = x => Array.isArray(x) ? x.map(String).filter(Boolean) : (x ? [String(x)] : []);
+  return Object.assign({}, base, {
+    head: String(d.head || base.head || '').trim(),
+    kind: d.kind === 'phrase' ? 'phrase' : 'word',
+    pron: String(d.pron || ''), register: String(d.register || 'neutral'),
+    meaning: String(d.meaning || ''), heb: String(d.heb || base.heb || ''),
+    distinguish: String(d.distinguish || ''), examples: arr(d.examples).slice(0,3),
+    collocations: arr(d.collocations).slice(0,6), note: String(d.note || ''),
+  });
+}
+function sampleErrorCopy(e){
+  const c = e && e.code;
+  if (c === 'no_key') return 'Add your Anthropic API key under Lexicon → Claude & settings, or use the paste-in option below.';
+  if (c === 'auth') return 'The API key was rejected. Check it under Lexicon → Claude & settings.';
+  if (c === 'network') return 'No connection to the Anthropic API. Check your internet and try again.';
+  if (c === 'rate_limited') return 'Claude is rate-limited right now. Try again in a minute.';
+  if (c === 'invalid_json') return 'Claude\'s answer came back malformed. Try once more.';
+  if (c === 'cancelled') return '';
+  return 'Something went wrong (' + (c || 'unknown') + '). Try again.';
+}
+
+// ---------- rendering ----------
+function render(){
+  const due = dueList().length;
+  $('#pill').innerHTML = entries.length ? `<b>${due}</b> due · ${entries.length} entries` : '';
+  $('#nav-dot').hidden = !due;
+  if (view === 'today') renderToday();
+  if (view === 'lex') renderLex();
+}
+function switchView(v){
+  view = v;
+  document.querySelectorAll('.view').forEach(s => s.classList.toggle('on', s.id === 'view-' + v));
+  document.querySelectorAll('nav button').forEach(b => b.classList.toggle('on', b.dataset.v === v));
+  render();
+}
+document.querySelectorAll('nav button').forEach(b => b.onclick = () => switchView(b.dataset.v));
+$('#m-recall').onclick = () => { mode = 'recall'; $('#m-recall').classList.add('on'); $('#m-use').classList.remove('on'); sessionIdx = 0; renderToday(); };
+$('#m-use').onclick = () => { mode = 'use'; $('#m-use').classList.add('on'); $('#m-recall').classList.remove('on'); sessionIdx = 0; renderToday(); };
+
+function entryCard(e, opts = {}){
+  const tags = `<span class="tag ${e.kind}">${e.kind}</span><span class="tag ${e.status}">${e.status === 'stub' ? 'needs building' : e.status}</span>${e.register && e.register !== 'neutral' ? `<span class="tag">${esc(e.register)}</span>` : ''}`;
+  const ex = (e.examples||[]).map(x => `<p class="ex">${markHead(x, e.head)}</p>`).join('');
+  const coll = (e.collocations||[]).length ? `<div class="coll">${e.collocations.map(c => `<span>${esc(c)}</span>`).join('')}</div>` : '';
+  return `<div class="card">
+    <h2 class="head">${esc(e.head)}</h2>
+    ${e.pron ? `<div class="pron">${esc(e.pron)}</div>` : ''}
+    ${e.heb ? `<div class="heb mt">${esc(e.heb)}</div>` : ''}
+    <div class="meta">${tags}</div>
+    <div class="body">
+      ${e.meaning ? `<p>${esc(e.meaning)}</p>` : ''}
+      ${e.distinguish ? `<p class="dim">${esc(e.distinguish)}</p>` : ''}
+      ${ex}${coll}
+      ${e.note ? `<p class="small dim mt">${esc(e.note)}</p>` : ''}
+      ${e.context ? `<p class="small dim mt">Met: ${esc(e.context)}</p>` : ''}
+    </div>
+    ${opts.actions || ''}
+  </div>`;
+}
+function headRegex(head){
+  const stem = head.trim().split(/\s+/).map(w => w.length > 5 ? w.slice(0, w.length - 2) : w).map(w => w.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')).join('\\s+');
+  return new RegExp('\\b' + stem + '\\w*(?:\\s+\\w+){0,2}?', 'i');
+}
+function markHead(sentence, head){
+  const re = headRegex(head); const m = sentence.match(re);
+  if (!m) return esc(sentence);
+  // mark only the tightest span: the stem match extended through the word
+  const tight = sentence.match(new RegExp('\\b' + head.trim().split(/\s+/).map(w => (w.length > 5 ? w.slice(0, w.length-2) : w).replace(/[.*+?^${}()|[\]\\]/g,'\\$&')).join('\\s+') + '\\w*', 'i'));
+  if (!tight) return esc(sentence);
+  const i = tight.index;
+  return esc(sentence.slice(0,i)) + '<span class="b">' + esc(tight[0]) + '</span>' + esc(sentence.slice(i + tight[0].length));
+}
+function gapFill(sentence, head){
+  const tight = sentence.match(new RegExp('\\b' + head.trim().split(/\s+/).map(w => (w.length > 5 ? w.slice(0, w.length-2) : w).replace(/[.*+?^${}()|[\]\\]/g,'\\$&')).join('\\s+') + '\\w*', 'i'));
+  if (!tight) return null;
+  return esc(sentence.slice(0, tight.index)) + '<span class="b">______</span>' + esc(sentence.slice(tight.index + tight[0].length));
+}
+
+// ---------- Today: recall ----------
+let sessionIdx = 0, sessionTotal = 0, current = null, revealed = false;
+function renderToday(){
+  const box = $('#today');
+  const stubs = entries.filter(e => e.status === 'stub').length;
+  if (!entries.length){
+    box.innerHTML = `<div class="empty"><p class="head">Nothing here yet.</p><p>Add a word you met today, or import a notebook page.</p><div class="row"><button class="btn" id="go-add">Add a word</button></div></div>`;
+    $('#go-add').onclick = () => switchView('add'); return;
+  }
+  if (mode === 'use') return renderUse();
+  let pool = dueList();
+  if (!pool.length){
+    const practice = entries.filter(e => e.status !== 'known' && e.status !== 'stub').sort((a,b)=>(a.lastReviewed||0)-(b.lastReviewed||0)).slice(0,5);
+    box.innerHTML = `<div class="empty"><p class="head">Nothing due right now.</p>
+      <p>${stubs ? `${stubs} imported entries still need building. ` : ''}Come back tomorrow, switch to <b>Use it</b>, or run a few extra.</p>
+      <div class="row">${practice.length ? `<button class="btn ghost" id="extra">Practice 5 anyway</button>` : ''}${stubs ? `<button class="btn" id="go-build">Build entries</button>` : ''}</div></div>`;
+    $('#prog').style.width = '100%';
+    const x = $('#extra'); if (x) x.onclick = () => { practice.forEach(e => e.due = now()); current = null; sessionIdx = 0; renderToday(); };
+    const g = $('#go-build'); if (g) g.onclick = () => { switchView('lex'); $('#filt').value = 'stub'; renderLex(); };
+    return;
+  }
+  if (!current || !pool.find(e => e.id === current.id)){ current = pool[0]; revealed = false; sessionTotal = Math.max(sessionTotal, pool.length + sessionIdx); }
+  $('#prog').style.width = (sessionTotal ? (100 * sessionIdx / sessionTotal) : 0) + '%';
+  const e = current;
+  const ex = (e.examples||[])[sessionIdx % Math.max(1,(e.examples||[]).length)];
+  const gap = ex ? gapFill(ex, e.head) : null;
+  const prompt = gap ? `<p class="ex">${gap}</p><p class="mt">${esc(e.meaning)}</p>` : `<p class="mt" style="font-size:18px">${esc(e.meaning || 'No definition yet')}</p>`;
+  box.innerHTML = `<div class="card">
+    <div class="meta"><span class="tag ${e.kind}">${e.kind}</span>${e.register && e.register !== 'neutral' ? `<span class="tag">${esc(e.register)}</span>` : ''}<span class="dim">${pool.length} left</span></div>
+    ${prompt}
+    <div class="heb mt" id="hint" hidden>${esc(e.heb)}</div>
+    <div class="answer"><input type="text" id="ans" placeholder="Type the ${e.kind}" autocapitalize="off" autocomplete="off" autocorrect="off" enterkeyhint="go"><button class="btn" id="check">Check</button></div>
+    <div class="row"><button class="link" id="show-hint">Hebrew hint</button><button class="link" id="give-up">Show answer</button></div>
+    <div id="result"></div>
+  </div>`;
+  const ans = $('#ans'); setTimeout(() => ans.focus(), 50);
+  $('#show-hint').onclick = () => $('#hint').hidden = false;
+  const reveal = (typed) => {
+    const norm = s => s.toLowerCase().replace(/[^a-z' ]/g,'').replace(/\s+/g,' ').trim();
+    const a = norm(typed||''), h = norm(e.head);
+    const hit = a && (a === h || h.startsWith(a) && a.length >= Math.max(4, h.length - 2) || a.includes(h));
+    const close = a && !hit && lev(a, h) <= Math.max(1, Math.floor(h.length / 6));
+    $('#result').innerHTML = `<div class="verdict ${hit ? 'good' : 'bad'}">${hit ? 'Right.' : close ? `Almost — it\'s <b>${esc(e.head)}</b>.` : a ? `It\'s <b>${esc(e.head)}</b>.` : `<b>${esc(e.head)}</b>`}${e.pron ? ` <span class="dim">${esc(e.pron)}</span>` : ''}</div>
+      ${e.distinguish ? `<p class="small dim mt">${esc(e.distinguish)}</p>` : ''}
+      ${(e.collocations||[]).length ? `<div class="coll">${e.collocations.map(c => `<span>${esc(c)}</span>`).join('')}</div>` : ''}
+      <div class="rate">
+        <button id="r0">Again<small>10 min</small></button>
+        <button id="r1">Good<small>${ivLabel(e,1)}</small></button>
+        <button id="r2">Easy<small>${ivLabel(e,2)}</small></button>
+      </div>
+      <div class="row"><button class="link" id="open-entry">Open entry</button><button class="link" id="mark-known">I own this word</button></div>`;
+    ans.disabled = true; $('#check').disabled = true;
+    [0,1,2].forEach(g => $('#r'+g).onclick = () => { schedule(e, g); sessionIdx++; current = null; saveEntry(e); });
+    $('#open-entry').onclick = () => openEntry(e);
+    $('#mark-known').onclick = () => { e.status = 'known'; sessionIdx++; current = null; saveEntry(e); };
+    if (hit) setTimeout(() => $('#r1').focus(), 30);
+  };
+  $('#check').onclick = () => reveal(ans.value);
+  ans.addEventListener('keydown', ev => { if (ev.key === 'Enter') reveal(ans.value); });
+  $('#give-up').onclick = () => reveal('');
+}
+function ivLabel(e, g){
+  const c = Object.assign({}, e); schedule(c, g);
+  const d = Math.round((c.due - now()) / DAY); return d < 1 ? 'tomorrow' : d === 1 ? '1 day' : d + ' days';
+}
+function lev(a, b){
+  const m = a.length, n = b.length; if (!m) return n; if (!n) return m;
+  let prev = Array.from({length:n+1}, (_,i)=>i);
+  for (let i=1;i<=m;i++){ const cur=[i]; for(let j=1;j<=n;j++) cur[j]=Math.min(prev[j]+1,cur[j-1]+1,prev[j-1]+(a[i-1]===b[j-1]?0:1)); prev=cur; }
+  return prev[n];
+}
+
+// ---------- Today: use it ----------
+let useCurrent = null;
+function renderUse(){
+  const box = $('#today');
+  const pool = useList().filter(e => e.meaning);
+  $('#prog').style.width = '0';
+  if (!pool.length){ box.innerHTML = `<div class="empty"><p class="head">No entries to practise.</p><p>Entries you are learning show up here once they have been built.</p></div>`; return; }
+  if (!useCurrent || !pool.find(e => e.id === useCurrent.id)) useCurrent = pool[0];
+  const e = useCurrent;
+  box.innerHTML = `<div class="card">
+    <div class="meta"><span class="tag ${e.kind}">${e.kind}</span>${e.register && e.register !== 'neutral' ? `<span class="tag">${esc(e.register)}</span>` : ''}<span class="dim">${e.uses||0}/2 good uses</span></div>
+    <h2 class="head">${esc(e.head)}</h2>
+    <p class="dim">${esc(e.meaning)}</p>
+    ${(e.collocations||[]).length ? `<div class="coll">${e.collocations.map(c => `<span>${esc(c)}</span>`).join('')}</div>` : ''}
+    <p class="lbl">Write a sentence you could actually say this week</p>
+    <textarea id="use-text" placeholder="…" enterkeyhint="done"></textarea>
+    <div class="row"><button class="btn" id="use-check" ${sample.enabled() ? '' : 'disabled'}>Check with Claude</button><button class="btn ghost" id="use-skip">Skip</button></div>
+    ${sample.enabled() ? '' : '<p class="small dim">Checking needs an API key: Lexicon → Claude & settings.</p>'}
+    <div class="status" id="use-status"></div>
+    <div id="use-result"></div>
+  </div>`;
+  $('#use-skip').onclick = () => { const i = pool.indexOf(e); useCurrent = pool[(i+1) % pool.length]; renderUse(); };
+  $('#use-check').onclick = async () => {
+    const s = $('#use-text').value.trim(); if (!s) return;
+    $('#use-check').disabled = true; flash($('#use-status'), '', ''); $('#use-status').innerHTML = '<span class="spin"></span>Reading it the way an editor would…';
+    try {
+      const r = await sample.json(gradePrompt(e, s), { modelTier: 'default', cache: false });
+      $('#use-status').textContent = '';
+      $('#use-result').innerHTML = `<div class="verdict ${r.ok ? 'good' : 'bad'}"><b>${r.ok ? 'Natural.' : 'Not quite.'}</b> ${esc(r.verdict)}${r.better ? `<p class="ex" style="margin-top:10px">${esc(r.better)}</p>` : ''}</div>
+        <div class="row"><button class="btn" id="use-next">${r.ok ? 'Count it and continue' : 'Try again'}</button>${r.ok ? '' : '<button class="btn ghost" id="use-move">Move on</button>'}</div>`;
+      $('#use-next').onclick = () => {
+        if (r.ok){ e.uses = (e.uses||0) + 1; e.lastUsed = now(); if (e.uses >= 2 && e.status !== 'known') e.status = 'active'; useCurrent = null; saveEntry(e); }
+        else { $('#use-result').innerHTML = ''; $('#use-check').disabled = false; $('#use-text').focus(); }
+      };
+      const mv = $('#use-move'); if (mv) mv.onclick = () => { const i = pool.indexOf(e); useCurrent = pool[(i+1) % pool.length]; renderUse(); };
+    } catch (err) { flash($('#use-status'), sampleErrorCopy(err), 'err'); $('#use-check').disabled = false; }
+  };
+}
+
+// ---------- Add ----------
+let draft = null;
+$('#add-build').onclick = async () => {
+  const head = $('#add-head').value.trim(); if (!head) return $('#add-head').focus();
+  
+  const dup = entries.find(e => e.head.toLowerCase() === head.toLowerCase());
+  $('#add-build').disabled = true; $('#add-status').className = 'status'; $('#add-status').innerHTML = '<span class="spin"></span>Building the entry…';
+  try {
+    const d = await sample.json(buildPrompt(head, $('#add-ctx').value.trim(), dup ? dup.heb : ''), { modelTier: 'default' });
+    draft = normalizeEntry(d, dup || { id: newId(), status: 'new', created: now(), due: now(), reps: 0, interval: 0, ease: 2.4, uses: 0 });
+    draft.context = $('#add-ctx').value.trim() || draft.context || '';
+    $('#add-status').textContent = dup ? 'This one was already in your lexicon; saving will update it.' : '';
+    $('#add-preview').innerHTML = entryCard(draft, { actions: `<div class="row"><button class="btn" id="save-draft">Save to lexicon</button><button class="btn ghost" id="edit-draft">Edit first</button></div>` });
+    $('#save-draft').onclick = async () => { await saveEntry(draft); clearAdd('Saved. It\'s due for recall today.'); };
+    $('#edit-draft').onclick = () => openEditor(draft, async (e2) => { await saveEntry(e2); clearAdd('Saved.'); });
+  } catch (err) { flash($('#add-status'), sampleErrorCopy(err), 'err'); }
+  $('#add-build').disabled = false;
+};
+function clearAdd(msg){ $('#add-head').value = ''; $('#add-ctx').value = ''; $('#add-preview').innerHTML = ''; draft = null; flash($('#add-status'), msg, 'ok'); }
+function stubFrom(head, heb){
+  const e = { id: newId(), head, kind: head.trim().includes(' ') ? 'phrase' : 'word', status: 'stub', heb: heb || '', pron:'', register:'neutral', meaning:'', distinguish:'', examples:[], collocations:[], note:'', context: $('#add-ctx') ? $('#add-ctx').value.trim() : '', created: now(), due: now(), reps:0, interval:0, ease:2.4, uses:0 };
+  return e;
+}
+$('#add-stub').onclick = async () => {
+  const head = $('#add-head').value.trim(); if (!head) return $('#add-head').focus();
+  await saveEntry(stubFrom(head)); clearAdd('Saved for later. Build it from the Lexicon tab when you have a minute.');
+};
+$('#add-head').addEventListener('keydown', ev => { if (ev.key === 'Enter') $('#add-build').click(); });
+
+$('#imp-go').onclick = async () => {
+  const lines = $('#imp-text').value.split('\n').map(l => l.trim()).filter(Boolean);
+  if (!lines.length) return;
+  let n = 0, skipped = 0;
+  for (const l of lines){
+    const m = l.match(/^(.+?)\s*[-–—:=]\s*(.+)$/);
+    const head = (m ? m[1] : l).trim(), heb = m ? m[2].trim() : '';
+    if (!head) continue;
+    if (entries.find(e => e.head.toLowerCase() === head.toLowerCase())){ skipped++; continue; }
+    const e = stubFrom(head, heb); e.context = 'notebook';
+    entries.push(e); n++;
+    if (db){ try { await db.collection('entries').doc(e.id).set(e); } catch (err) {} }
+  }
+  writeLocal(); render();
+  $('#imp-text').value = '';
+  flash($('#imp-status'), `Imported ${n}${skipped ? `, skipped ${skipped} already in the lexicon` : ''}. Build them from the Lexicon tab.`, 'ok');
+};
+
+// ---------- Lexicon ----------
+$('#q').addEventListener('input', renderLex); $('#filt').addEventListener('change', renderLex);
+function renderLex(){
+  const q = $('#q').value.trim().toLowerCase(), f = $('#filt').value;
+  let rows = entries.slice().sort((a,b) => (b.created||0) - (a.created||0));
+  if (f === 'phrase') rows = rows.filter(e => e.kind === 'phrase'); else if (f) rows = rows.filter(e => e.status === f);
+  if (q) rows = rows.filter(e => (e.head||'').toLowerCase().includes(q) || (e.heb||'').includes(q) || (e.meaning||'').toLowerCase().includes(q));
+  const c = s => entries.filter(e => e.status === s).length;
+  $('#counts').textContent = entries.length ? `${entries.length} entries · ${c('active')} active · ${c('learning')} learning · ${c('new')} new · ${c('stub')} unbuilt · ${c('known')} known` : '';
+  $('#build-row').style.display = (c('stub') && sample.enabled()) ? '' : 'none';
+  $('#list').innerHTML = rows.length ? rows.slice(0, 400).map(e => `<button class="item" data-id="${e.id}"><span class="s ${e.status}"></span><span class="w">${esc(e.head)}</span><span class="h">${esc(e.heb)}</span></button>`).join('') + (rows.length > 400 ? `<p class="small dim">Showing 400 of ${rows.length}; search to narrow.</p>` : '')
+    : `<div class="empty"><p>${entries.length ? 'No matches.' : 'Your lexicon is empty.'}</p></div>`;
+  $('#list').querySelectorAll('.item').forEach(b => b.onclick = () => openEntry(entries.find(e => e.id === b.dataset.id)));
+}
+$('#build-stubs').onclick = async () => {
+  const stubs = entries.filter(e => e.status === 'stub').slice(0, 8);
+  if (!stubs.length) return;
+  $('#build-stubs').disabled = true; $('#lex-status').className = 'status'; $('#lex-status').innerHTML = `<span class="spin"></span>Building ${stubs.length} entries… this takes a minute.`;
+  try {
+    const arr = await sample.json(bulkPrompt(stubs), { modelTier: 'default' });
+    let n = 0;
+    if (Array.isArray(arr)) for (const d of arr){
+      const s = stubs.find(x => x.id === String(d.id)) || stubs.find(x => x.head.toLowerCase() === String(d.head||'').toLowerCase());
+      if (!s) continue;
+      const e = normalizeEntry(d, s); e.status = 'new'; e.due = now();
+      await saveEntry(e); n++;
+    }
+    flash($('#lex-status'), `Built ${n}. They are now due in Today.`, 'ok');
+  } catch (err) { flash($('#lex-status'), sampleErrorCopy(err), 'err'); }
+  $('#build-stubs').disabled = false;
+};
+$('#exp').onclick = async () => {
+  try { await navigator.clipboard.writeText(JSON.stringify(entries, null, 1)); flash($('#exp-status'), 'Copied.', 'ok'); }
+  catch (e) { flash($('#exp-status'), 'Clipboard blocked; select-all in the Lexicon and copy instead.', 'err'); }
+};
+
+// ---------- sheet: entry detail & editor ----------
+const sheet = $('#sheet'), panel = $('#panel');
+function openSheet(html){ panel.innerHTML = html; sheet.classList.add('on'); panel.scrollTop = 0; }
+function closeSheet(){ sheet.classList.remove('on'); panel.innerHTML = ''; }
+sheet.addEventListener('click', ev => { if (ev.target === sheet) closeSheet(); });
+document.addEventListener('keydown', ev => { if (ev.key === 'Escape' && sheet.classList.contains('on')) closeSheet(); });
+
+function openEntry(e){
+  if (!e) return;
+  const canBuild = (e.status === 'stub' || !e.meaning);
+  openSheet(`<div class="bar"><span class="dim small">${e.created ? new Date(e.created).toLocaleDateString() : ''}${e.due && e.status !== 'known' && e.status !== 'stub' ? ` · next review ${e.due <= now() ? 'now' : new Date(e.due).toLocaleDateString()}` : ''}</span><button class="link" id="sh-close">Close</button></div>
+    ${entryCard(e, { actions: `<div class="row">
+      ${canBuild ? `<button class="btn" id="sh-build">Build with Claude</button>` : `<button class="btn ghost" id="sh-rebuild">Rebuild</button>`}
+      <button class="btn ghost" id="sh-edit">Edit</button></div>
+      <div class="row">${e.status === 'known' ? `<button class="link" id="sh-relearn">Put back in rotation</button>` : `<button class="link" id="sh-known">I own this word</button>`}<button class="link" id="sh-del">Delete</button></div>
+      <div class="status" id="sh-status"></div>` })}`);
+  $('#sh-close').onclick = closeSheet;
+  $('#sh-edit').onclick = () => openEditor(e, async (e2) => { await saveEntry(e2); openEntry(e2); });
+  $('#sh-del').onclick = async () => { if (confirm(`Delete "${e.head}"?`)) { await deleteEntry(e.id); closeSheet(); } };
+  const k = $('#sh-known'); if (k) k.onclick = async () => { e.status = 'known'; await saveEntry(e); openEntry(e); };
+  const rl = $('#sh-relearn'); if (rl) rl.onclick = async () => { e.status = 'learning'; e.due = now(); await saveEntry(e); openEntry(e); };
+  const build = async () => {
+    $('#sh-status').className = 'status'; $('#sh-status').innerHTML = '<span class="spin"></span>Building…';
+    try { const d = await sample.json(buildPrompt(e.head, e.context === 'notebook' ? '' : e.context, e.heb), { modelTier: 'default', cache: false });
+      const e2 = normalizeEntry(d, e); if (e2.status === 'stub') { e2.status = 'new'; e2.due = now(); }
+      await saveEntry(e2); openEntry(e2);
+    } catch (err) { flash($('#sh-status'), sampleErrorCopy(err), 'err'); }
+  };
+  const b = $('#sh-build'); if (b) b.onclick = build; const rb = $('#sh-rebuild'); if (rb) rb.onclick = build;
+}
+function openEditor(e, onSave){
+  const f = (k, label, cls='', multi=false) => `<div class="fld"><label for="f-${k}">${label}</label>${multi ? `<textarea id="f-${k}" class="${cls}">${esc(Array.isArray(e[k]) ? e[k].join('\n') : e[k] || '')}</textarea>` : `<input type="text" id="f-${k}" class="${cls}" value="${esc(e[k] || '')}">`}</div>`;
+  openSheet(`<div class="bar"><span class="dim small">Edit</span><button class="link" id="ed-cancel">Cancel</button></div>
+    ${f('head','Word or phrase','big')}
+    <div class="fld"><label>Kind</label><select id="f-kind"><option value="word" ${e.kind==='word'?'selected':''}>word</option><option value="phrase" ${e.kind==='phrase'?'selected':''}>phrase</option></select></div>
+    ${f('heb','Hebrew','heb')}${f('pron','Pronunciation')}
+    <div class="fld"><label>Register</label><select id="f-register">${['neutral','formal','informal','slang','literary','dated','technical'].map(r => `<option ${e.register===r?'selected':''}>${r}</option>`).join('')}</select></div>
+    ${f('meaning','Meaning','',true)}${f('distinguish','Versus the near-synonym','',true)}${f('examples','Examples (one per line)','',true)}${f('collocations','Collocations (one per line)','',true)}${f('note','Usage note','',true)}${f('context','Where you met it')}
+    <div class="row"><button class="btn" id="ed-save">Save</button></div>`);
+  $('#ed-cancel').onclick = () => openEntry(e);
+  $('#ed-save').onclick = () => {
+    const v = k => $('#f-'+k).value.trim();
+    const lines = k => v(k).split('\n').map(s => s.trim()).filter(Boolean);
+    const e2 = Object.assign({}, e, { head: v('head') || e.head, kind: $('#f-kind').value, heb: v('heb'), pron: v('pron'), register: $('#f-register').value, meaning: v('meaning'), distinguish: v('distinguish'), examples: lines('examples'), collocations: lines('collocations'), note: v('note'), context: v('context') });
+    if (e2.status === 'stub' && e2.meaning) { e2.status = 'new'; e2.due = now(); }
+    onSave(e2);
+  };
+}
+
+// ---------- Claude through the Anthropic API ----------
+function apiKey(){ return readPref('key',''); }
+function apiModel(){ return readPref('model','claude-sonnet-5-5'); }
+async function callClaude(prompt, opts = {}){
+  const key = apiKey(); if (!key) throw { code: 'no_key', message: 'no key' };
+  let res;
+  try {
+    res = await fetch('https://api.anthropic.com/v1/messages', { method: 'POST', headers: {
+      'content-type': 'application/json', 'x-api-key': key, 'anthropic-version': '2023-06-01', 'anthropic-dangerous-direct-browser-access': 'true' },
+      body: JSON.stringify({ model: apiModel(), max_tokens: opts.maxTokens || 2000, messages: [{ role: 'user', content: prompt }] }) });
+  } catch (e) { throw { code: 'network', message: String(e) }; }
+  if (res.status === 401 || res.status === 403) throw { code: 'auth', message: 'auth' };
+  if (res.status === 429) throw { code: 'rate_limited', message: 'rate' };
+  if (!res.ok) throw { code: 'upstream_error', message: 'HTTP ' + res.status };
+  const data = await res.json();
+  return (data.content || []).filter(b => b.type === 'text').map(b => b.text).join('\n');
+}
+function parseJsonLoose(text){
+  const t = String(text).trim();
+  try { return JSON.parse(t); } catch (e) {}
+  const fence = t.match(/```(?:json)?\s*([\s\S]*?)```/); if (fence) { try { return JSON.parse(fence[1]); } catch (e) {} }
+  const a = t.search(/[\[{]/), b = Math.max(t.lastIndexOf('}'), t.lastIndexOf(']'));
+  if (a >= 0 && b > a) { try { return JSON.parse(t.slice(a, b + 1)); } catch (e) {} }
+  throw { code: 'invalid_json', message: 'no json', text: t };
+}
+sample = { json: async (prompt, opts) => parseJsonLoose(await callClaude(prompt + '\nReply with JSON only.', opts)) };
+sample.enabled = () => !!apiKey();
+
+// ---------- settings, backup, manual fallback ----------
+$('#set-key').value = apiKey(); $('#set-model').value = apiModel();
+$('#set-save').onclick = () => { writePref('key', $('#set-key').value.trim()); writePref('model', $('#set-model').value); flash($('#set-status'), apiKey() ? 'Saved. Claude is on.' : 'Saved without a key; the paste-in option stays available.', 'ok'); render(); };
+$('#exp-dl').onclick = () => {
+  const blob = new Blob([JSON.stringify(entries, null, 1)], { type: 'application/json' });
+  const a = document.createElement('a'); a.href = URL.createObjectURL(blob); a.download = 'lexicon-backup-' + new Date().toISOString().slice(0,10) + '.json'; document.body.appendChild(a); a.click(); a.remove();
+};
+function mergeEntries(arr){
+  let added = 0, updated = 0;
+  for (const d of arr){
+    if (!d || !d.head) continue;
+    const i = entries.findIndex(e => e.head.toLowerCase() === String(d.head).toLowerCase());
+    if (i < 0){ entries.push(Object.assign({ id: newId() }, d)); added++; }
+    else if ((d.meaning && !entries[i].meaning) || (d.updated||0) > (entries[i].updated||0)){ entries[i] = Object.assign({}, entries[i], d, { id: entries[i].id }); updated++; }
+  }
+  writeLocal(); render(); return { added, updated };
+}
+$('#imp-json-go').onclick = () => {
+  try { const arr = JSON.parse($('#imp-json').value); if (!Array.isArray(arr)) throw 0;
+    const r = mergeEntries(arr); $('#imp-json').value = ''; flash($('#exp-status'), `Imported: ${r.added} new, ${r.updated} updated.`, 'ok');
+  } catch (e) { flash($('#exp-status'), 'That isn\'t a Lexicon JSON backup.', 'err'); }
+};
+$('#man-copy').onclick = async () => {
+  const head = $('#add-head').value.trim(); if (!head) { flash($('#man-status'), 'Type the word first.', 'err'); return $('#add-head').focus(); }
+  const dup = entries.find(e => e.head.toLowerCase() === head.toLowerCase());
+  try { await navigator.clipboard.writeText(buildPrompt(head, $('#add-ctx').value.trim(), dup ? dup.heb : '')); flash($('#man-status'), 'Prompt copied. Paste it into Claude.', 'ok'); }
+  catch (e) { flash($('#man-status'), 'Clipboard blocked.', 'err'); }
+};
+$('#man-go').onclick = async () => {
+  const head = $('#add-head').value.trim();
+  try { const d = parseJsonLoose($('#man-paste').value);
+    const dup = entries.find(e => e.head.toLowerCase() === (d.head || head).toLowerCase());
+    const e = normalizeEntry(d, dup || { id: newId(), status: 'new', created: now(), due: now(), reps: 0, interval: 0, ease: 2.4, uses: 0 });
+    if (e.status === 'stub') { e.status = 'new'; e.due = now(); }
+    e.context = $('#add-ctx').value.trim() || e.context || '';
+    await saveEntry(e); $('#man-paste').value = ''; clearAdd('Saved.'); flash($('#man-status'), '', '');
+  } catch (err) { flash($('#man-status'), 'Couldn\'t read that as a Lexicon entry. Paste Claude\'s full JSON answer.', 'err'); }
+};
+
+// ---------- boot ----------
+entries = readLocal() || [];
+if (!entries.length && !readPref('seeded', false)){
+  const t = now();
+  SEED.forEach((l, i) => { const [h, heb] = l.split('|'); const e = stubFrom(h, heb); e.context = 'notebook'; e.created = t - (SEED.length - i); entries.push(e); });
+  writePref('seeded', true); writeLocal();
+}
+render();
+})();
+</script>
+</body>
+</html>
